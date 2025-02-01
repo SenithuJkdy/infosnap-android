@@ -3,7 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/landing">
+    app:startDestination="@+id/signup">
+
+
+    <fragment
+        android:id="@+id/signup"
+        android:name="com.example.reporter_news_app.ui.signup.SignUpFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
     <fragment
         android:id="@+id/landing"

@@ -33,12 +33,12 @@ class LandingFragment : Fragment() {
                 binding.nextButton.text = "Next"
             }
 
+            // Redirect after Get Started button clicked
             if (binding.nextButton.text == "Get Started"){
                 binding.nextButton.setOnClickListener {
-                    findNavController().navigate(R.id.nav_home) // Redirect to HomeFragment
+                    findNavController().navigate(R.id.nav_gallery) // Redirect to HomeFragment
                 }
             }
-
 
 
             // Enable/Disable Back Button
