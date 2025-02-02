@@ -2,6 +2,7 @@ package com.example.reporter_news_app
 
 import android.os.Bundle
 import android.view.Menu
+import android.view.View
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
@@ -51,8 +52,9 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            if (destination.id == R.id.nav_landing || destination.id == R.id.nav_login) {
+            if (destination.id == R.id.nav_landing || destination.id == R.id.nav_login || destination.id == R.id.nav_signup) {
                 supportActionBar?.hide()
+                binding.appBarMain.fab?.hide()
             } else {
                 supportActionBar?.show()
             }

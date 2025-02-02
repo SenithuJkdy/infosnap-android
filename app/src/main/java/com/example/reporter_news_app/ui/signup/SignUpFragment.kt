@@ -2,11 +2,15 @@ package com.example.reporter_news_app.ui.signup
 
 import androidx.fragment.app.viewModels
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.ForegroundColorSpan
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.reporter_news_app.R
@@ -37,6 +41,21 @@ class SignUpFragment : Fragment() {
             val password = binding.passwordEditText.text.toString()
 
             viewModel.signUp(username, email, password)
+        }
+
+        // For "don't have an account ? Sign Up"
+        val fullText = "Already have an account ? Login"
+        val spannableString = SpannableString(fullText)
+        val loginUpStart = fullText.indexOf("Login")
+        val loginUpEnd = loginUpStart + "Login".length
+        spannableString.setSpan(
+            ForegroundColorSpan(ContextCompat.getColor(requireContext(), R.color.sky_blue)),
+            loginUpStart, loginUpEnd, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
+        binding.signUpTextView.text = spannableString // Set to your signUpTextView
+
+        binding.signUpTextView.setOnClickListener{
+            findNavController().navigate(R.id.nav_login) // Navigate to Login when hyperlink clicked
         }
 
         viewModel.signUpState.observe(viewLifecycleOwner) { success ->

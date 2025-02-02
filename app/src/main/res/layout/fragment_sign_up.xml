@@ -1,39 +1,316 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:gravity="center"
     android:padding="20dp"
     tools:context=".ui.signup.SignUpFragment">
 
 
-        <EditText
-            android:id="@+id/usernameEditText"
+        <!--Heading Section -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hello"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="210dp"
+            android:letterSpacing="0.02"
+            android:layout_marginTop="30dp"
+            android:lineSpacingExtra="5sp"
+            android:textSize="50sp"
+            android:textColor="@color/sky_blue"
+            android:fontFamily="sans-serif-medium"
+            android:textStyle="bold"
+            android:textAppearance="?attr/textAppearanceHeadline6"
+            />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/sub_heading"
+            android:layout_below="@id/heading"
+            android:layout_marginStart="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Signup to get Started"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="180dp"
+            android:textSize="18sp"
+            android:textColor="@color/grey2"
+            android:fontFamily="sans-serif-medium"
+            android:maxLines="2"  android:singleLine="false"
+            />
+        <!--Textbox layouts-->
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:id="@+id/txtboxLayout"
+            android:layout_marginTop="35dp"
+            android:layout_below="@id/sub_heading"
+            android:layout_height="wrap_content"
+            >
+
+                <!-- Helper Text Above the Box -->
+                <TextView
+                    android:id="@+id/usernameHelperText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Username"
+                    android:layout_marginBottom="2dp"
+                    android:textColor="@color/grey2"
+                    android:textSize="13sp"
+                    app:layout_constraintBottom_toTopOf="@id/textUsernameInputLayout"
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
+
+                <!-- Username Input Layout -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textUsernameInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    app:hintEnabled="false"
+                    app:hintAnimationEnabled="true"
+                    app:boxBackgroundMode="filled"
+                    app:boxBackgroundColor="@color/grey"
+                    app:boxStrokeWidth="0dp"
+                    app:endIconMode="clear_text"
+                    android:hint="Username"
+                    app:boxStrokeColor="@color/transparent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/usernameEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:maxLength="10"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!--Email input layout Start-->
+
+                <TextView
+                    android:id="@+id/emailHelperText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Email"
+                    android:layout_marginTop="2dp"
+                    android:textColor="@color/grey2"
+                    android:textSize="13sp"
+                    app:layout_constraintBottom_toTopOf="@id/textEmailInputLayout"
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textEmailInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="70dp"
+                    android:layout_marginBottom="30dp"
+                    app:hintEnabled="false"
+                    app:hintAnimationEnabled="true"
+                    app:boxBackgroundMode="filled"
+                    app:boxBackgroundColor="@color/grey"
+                    app:boxStrokeWidth="0dp"
+                    app:endIconMode="clear_text"
+                    android:hint="Email"
+                    app:boxStrokeColor="@color/transparent"
+                    app:layout_constraintTop_toTopOf="@id/textUsernameInputLayout"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/emailEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:maxLength="20"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!--Email input layout End-->
+
+                <!-- Password Input Layout -->
+
+                <TextView
+                    android:id="@+id/passwordHelperText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Password"
+                    android:layout_marginBottom="2dp"
+                    android:textColor="@color/grey2"
+                    android:textSize="13sp"
+                    app:layout_constraintBottom_toTopOf="@id/textPasswordInputLayout"
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textPasswordInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    app:hintEnabled="false"
+                    app:hintAnimationEnabled="true"
+                    app:boxBackgroundMode="filled"
+                    app:boxBackgroundColor="@color/grey"
+                    app:boxStrokeWidth="0dp"
+                    app:counterEnabled="false"
+                    app:counterMaxLength="10"
+                    app:endIconMode="password_toggle"
+                    android:hint="Password"
+                    app:boxStrokeColor="@color/transparent"
+                    app:layout_constraintTop_toBottomOf="@id/textEmailInputLayout"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/passwordEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:inputType="textPassword"
+                            android:maxLength="10"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!--   textbox layout ends-->
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Username"/>
+            android:id="@+id/checkboxForgotPassLayout"
+            android:layout_below="@+id/txtboxLayout"
+            >
 
-        <EditText
-            android:id="@+id/emailEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Email"
-            android:inputType="textEmailAddress"/>
+                <!-- Remember Me Checkbox -->
+                <CheckBox
+                    android:id="@+id/rememberMeCheckBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Remember me"
+                    android:textColor="@color/grey2"
+                    app:buttonTint="@color/sky_blue"
+                    android:focusable="true"
+                    android:clickable="true"
+                    android:visibility="visible"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-            android:id="@+id/passwordEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Password"
-            android:inputType="textPassword"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <Button
+        <com.google.android.material.button.MaterialButton
+            android:layout_below="@+id/checkboxForgotPassLayout"
             android:id="@+id/signUpButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Sign Up"/>
+            app:cornerRadius="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="10dp"
+            android:backgroundTint="@color/sky_blue"
+            android:text="Sign Up" />
+
+        <!--    Continue with -->
+        <TextView
+            android:layout_below="@id/signUpButton"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/continuWithTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="5dp"
+            android:text="or continue with"
+            android:textColor="@color/grey2"
+            android:textStyle="bold"/>
+
+        <!--    Facebook , google button section    -->
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:id="@+id/socialmediaLoginLayout"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_below="@id/continuWithTextView">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/facebookLoginInButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Facebook"
+                    android:backgroundTint="@color/white"
+                    android:textColor="@color/black"
+                    app:cornerRadius="8dp"
+                    android:paddingHorizontal="30dp"
+                    android:paddingVertical="12dp"
+                    app:elevation="2dp"
+                    app:icon="@drawable/ic_facebook_logo"
+                    app:iconTint="@null"
+                    app:iconGravity="start"
+                    android:layout_marginEnd="23dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/googleLoginInButton"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintHorizontal_chainStyle="spread" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/googleLoginInButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Google"
+                    android:textAllCaps="false"
+                    android:backgroundTint="@color/white"
+                    android:textColor="@color/black"
+                    app:cornerRadius="8dp"
+                    android:paddingHorizontal="45dp"
+                    android:paddingVertical="12dp"
+                    app:elevation="2dp"
+                    app:icon="@drawable/ic_google_logo"
+                    app:iconTint="@null"
+                    app:iconGravity="start"
+                    app:layout_constraintStart_toEndOf="@+id/facebookLoginInButton"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-</LinearLayout>
+        <!-- Already have an account  -->
+        <TextView
+            android:layout_below="@id/socialmediaLoginLayout"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/signUpTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="5dp"
+            android:text="Already have an account ? Login"
+            android:textColor="@color/grey2"
+            android:textStyle="bold"/>
+
+
+        <!--        <EditText-->
+<!--            android:id="@+id/usernameEditText"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:hint="Username"/>-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/emailEditText"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:hint="Email"-->
+<!--            android:inputType="textEmailAddress"/>-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/passwordEditText"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:hint="Password"-->
+<!--            android:inputType="textPassword"/>-->
+
+<!--        <Button-->
+<!--            android:id="@+id/signUpButton"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Sign Up"/>-->
+
+
+</RelativeLayout>
