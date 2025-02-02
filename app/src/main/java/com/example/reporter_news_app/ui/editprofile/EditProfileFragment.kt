@@ -11,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.reporter_news_app.R
@@ -35,15 +36,19 @@ class EditProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val toolbar = requireActivity().findViewById<Toolbar>(R.id.toolbar)
+        toolbar.title = "Fill your Profile"  // Set custom title
+        toolbar.visibility = View.VISIBLE // Ensure the toolbar is shown
+
         viewModel = ViewModelProvider(this).get(EditProfileViewModel::class.java)
 
-        binding.uploadPhotoButton.setOnClickListener { openGallery() }
+        binding.profileImageView.setOnClickListener { openGallery() }
 
-        binding.saveProfileButton.setOnClickListener {
+        binding.nextButton.setOnClickListener {
             val username = binding.usernameEditText.text.toString()
             val fullName = binding.fullNameEditText.text.toString()
             val email = binding.emailEditText.text.toString()
-            val phone = binding.phoneEditText.text.toString()
+            val phone = binding.phoneNoEditText.text.toString()
 
             viewModel.saveProfile(username, fullName, email, phone, profileImageUri)
         }

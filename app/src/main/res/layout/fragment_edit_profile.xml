@@ -3,57 +3,208 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:padding="20dp"
     android:gravity="center"
     tools:context=".ui.editprofile.EditProfileFragment">
 
-    <ImageView
+    <!-- Circular Profile Image upload -->
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profileImageView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="40dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/ic_profile_upload" />
 
-        android:scaleType="centerCrop"
-        android:background="@android:color/darker_gray"
-        android:layout_gravity="center"/>
 
-    <Button
-        android:id="@+id/uploadPhotoButton"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:id="@+id/txtboxLayout"
+        android:layout_marginTop="35dp"
+        android:layout_marginHorizontal="5dp"
+        android:layout_below="@id/profileImageView"
         android:layout_height="wrap_content"
-        android:text="Upload Photo"/>
+        >
 
-    <EditText
-        android:id="@+id/usernameEditText"
+        <!-- Helper Text Above the Box -->
+        <TextView
+            android:id="@+id/usernameHelperText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Username"
+            android:layout_marginBottom="2dp"
+            android:textColor="@color/grey2"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toTopOf="@id/textUsernameInputLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <!-- Username Input Layout -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textUsernameInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            app:hintEnabled="false"
+            app:hintAnimationEnabled="true"
+            app:boxBackgroundMode="filled"
+            app:boxBackgroundColor="@color/grey"
+            app:boxStrokeWidth="0dp"
+            app:endIconMode="clear_text"
+            android:hint="Username"
+            app:boxStrokeColor="@color/transparent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/usernameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:maxLength="10"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <!--        Full name layout start-->
+
+        <TextView
+            android:id="@+id/fullNamelHelperText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Full Name"
+            android:layout_marginTop="2dp"
+            android:textColor="@color/grey2"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toTopOf="@id/textFullNameInputLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textFullNameInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="30dp"
+            app:hintEnabled="false"
+            app:hintAnimationEnabled="true"
+            app:boxBackgroundMode="filled"
+            app:boxBackgroundColor="@color/grey"
+            app:boxStrokeWidth="0dp"
+            app:endIconMode="clear_text"
+            android:hint="Email"
+            app:boxStrokeColor="@color/transparent"
+            app:layout_constraintTop_toBottomOf="@id/textUsernameInputLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/fullNameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:maxLength="20"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--        Full name layout end-->
+
+
+        <!--Email input layout Start-->
+
+        <TextView
+            android:id="@+id/emailHelperText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:layout_marginTop="2dp"
+            android:textColor="@color/grey2"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toTopOf="@id/textEmailInputLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textEmailInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="30dp"
+            app:hintEnabled="false"
+            app:hintAnimationEnabled="true"
+            app:boxBackgroundMode="filled"
+            app:boxBackgroundColor="@color/grey"
+            app:boxStrokeWidth="0dp"
+            app:endIconMode="clear_text"
+            android:hint="Email"
+            app:boxStrokeColor="@color/transparent"
+            app:layout_constraintTop_toBottomOf="@id/textFullNameInputLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/emailEditText"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:maxLength="20"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--Email input layout End-->
+
+        <!-- Phone Number Input Layout -->
+
+        <TextView
+            android:id="@+id/passwordHelperText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Phone Number"
+            android:layout_marginBottom="2dp"
+            android:textColor="@color/grey2"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toTopOf="@id/noPhoneInputLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/noPhoneInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            app:hintEnabled="false"
+            app:hintAnimationEnabled="true"
+            app:boxBackgroundMode="filled"
+            app:boxBackgroundColor="@color/grey"
+            app:boxStrokeWidth="0dp"
+            app:counterEnabled="false"
+            app:counterMaxLength="10"
+            app:endIconMode="clear_text"
+            android:hint="Password"
+            app:boxStrokeColor="@color/transparent"
+            app:layout_constraintTop_toBottomOf="@id/textEmailInputLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/phoneNoEditText"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:inputType="phone"
+                android:maxLength="10"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_below="@+id/txtboxLayout"
+        android:id="@+id/nextButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Username"/>
+        app:cornerRadius="5dp"
+        android:layout_marginHorizontal="5dp"
+       android:layout_marginTop="100dp"
+        android:backgroundTint="@color/sky_blue"
+        android:text="Next" />
 
-    <EditText
-        android:id="@+id/fullNameEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Full Name"/>
 
-    <EditText
-        android:id="@+id/emailEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Email"
-        android:inputType="textEmailAddress"/>
-
-    <EditText
-        android:id="@+id/phoneEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Phone Number"
-        android:inputType="phone"/>
-
-    <Button
-        android:id="@+id/saveProfileButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Save Profile"/>
 
 
 </LinearLayout>
