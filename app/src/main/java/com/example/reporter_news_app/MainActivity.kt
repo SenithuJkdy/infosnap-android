@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
 
         setTheme(R.style.Theme_MyApp)
         super.onCreate(savedInstanceState)
-        Thread.sleep(3000)
+        Thread.sleep(1000)
         installSplashScreen()
 
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            if (destination.id == R.id.landing) {
+            if (destination.id == R.id.nav_landing) {
                 supportActionBar?.hide()
             } else {
                 supportActionBar?.show()

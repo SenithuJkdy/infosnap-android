@@ -10,6 +10,6 @@ class LoginViewModel : ViewModel() {
 
     fun login(username: String, password: String) {
         // Simulate a login process (Replace with API call)
-        _loginState.value = username == "admin" && password == "password"
+        _loginState.value = username == "admin" && password == "admin"
     }
 }

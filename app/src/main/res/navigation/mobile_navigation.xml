@@ -3,29 +3,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/login">
+    app:startDestination="@+id/nav_landing">
 
     <fragment
-        android:id="@+id/editprofile"
+        android:id="@+id/nav_edit_profile"
         android:name="com.example.reporter_news_app.ui.editprofile.EditProfileFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
 
     <fragment
-        android:id="@+id/login"
+        android:id="@+id/nav_login"
         android:name="com.example.reporter_news_app.ui.login.LoginFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
     <fragment
-        android:id="@+id/signup"
+        android:id="@+id/nav_signup"
         android:name="com.example.reporter_news_app.ui.signup.SignUpFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
     <fragment
-        android:id="@+id/landing"
+        android:id="@+id/nav_landing"
         android:name="com.example.reporter_news_app.ui.landing.LandingFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

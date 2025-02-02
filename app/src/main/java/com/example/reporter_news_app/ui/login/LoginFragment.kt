@@ -38,7 +38,7 @@ class LoginFragment : Fragment() {
         }
 
         binding.signUpTextView.setOnClickListener {
-            findNavController().navigate(R.id.signup) // Navigate to Sign-Up
+            findNavController().navigate(R.id.nav_signup) // Navigate to Sign-Up when hyperlink clicked
         }
 
         viewModel.loginState.observe(viewLifecycleOwner) { success ->
