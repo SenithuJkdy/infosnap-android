@@ -25,7 +25,9 @@
 
     <style name="Theme.MyApp" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Normal App Theme -->
-        <item name="android:windowBackground">@color/teal_200</item>
+                <item name="android:windowBackground">@color/colorPrimary</item>
+<!--                <item name="android:windowBackground">@color/teal_200</item>-->
+
     </style>
 
     <style name="Theme.App.SplashScreen" parent="Theme.SplashScreen">

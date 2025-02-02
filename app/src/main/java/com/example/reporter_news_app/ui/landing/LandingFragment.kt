@@ -8,9 +8,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.reporter_news_app.R
+import com.example.reporter_news_app.databinding.FragmentHomeBinding
 import com.example.reporter_news_app.databinding.FragmentLandingBinding
 
 class LandingFragment : Fragment() {
+
+    private var _binding: FragmentHomeBinding? = null
 
     private lateinit var binding: FragmentLandingBinding
     private val viewModel: LandingViewModel by viewModels()

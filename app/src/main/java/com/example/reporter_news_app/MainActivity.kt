@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            if (destination.id == R.id.nav_landing) {
+            if (destination.id == R.id.nav_landing || destination.id == R.id.nav_login) {
                 supportActionBar?.hide()
             } else {
                 supportActionBar?.show()
