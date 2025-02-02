@@ -11,32 +11,30 @@ class LandingViewModel : ViewModel() {
     val imageIndex: LiveData<Int> = _imageIndex
 
     private val imageList = listOf(
-        R.drawable.image1,  // Replace with actual image resources
+        R.drawable.image1,
         R.drawable.image2,
         R.drawable.image3
     )
 
-    fun getImage(): Int {
-        return imageList[_imageIndex.value ?: 0]
-    }
+    fun getImage(index: Int): Int = imageList[index]
 
     fun nextImage() {
-        if (_imageIndex.value!! < imageList.size - 1) {
-            _imageIndex.value = _imageIndex.value!! + 1
+        _imageIndex.value?.let {
+            if (it < imageList.size - 1) _imageIndex.postValue(it + 1)
         }
     }
 
     fun prevImage() {
-        if (_imageIndex.value!! > 0) {
-            _imageIndex.value = _imageIndex.value!! - 1
+        _imageIndex.value?.let {
+            if (it > 0) _imageIndex.postValue(it - 1)
         }
     }
 
-    fun isLastImage(): Boolean {
-        return _imageIndex.value == imageList.size - 1
-    }
+    fun isLastImage(): Boolean = _imageIndex.value == imageList.lastIndex
 
-    fun isFirstImage(): Boolean {
-        return _imageIndex.value == 0
+    fun isFirstImage(): Boolean = _imageIndex.value == 0
+
+    fun getImageCount(): Int {
+        return imageList.size
     }
 }
