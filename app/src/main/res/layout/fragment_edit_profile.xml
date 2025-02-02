@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:gravity="center"
+    tools:context=".ui.editprofile.EditProfileFragment">
+
+    <ImageView
+        android:id="@+id/profileImageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+
+        android:scaleType="centerCrop"
+        android:background="@android:color/darker_gray"
+        android:layout_gravity="center"/>
+
+    <Button
+        android:id="@+id/uploadPhotoButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Upload Photo"/>
+
+    <EditText
+        android:id="@+id/usernameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Username"/>
+
+    <EditText
+        android:id="@+id/fullNameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Full Name"/>
+
+    <EditText
+        android:id="@+id/emailEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email"
+        android:inputType="textEmailAddress"/>
+
+    <EditText
+        android:id="@+id/phoneEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Phone Number"
+        android:inputType="phone"/>
+
+    <Button
+        android:id="@+id/saveProfileButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save Profile"/>
+
+
+</LinearLayout>

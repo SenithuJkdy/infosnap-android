@@ -6,6 +6,13 @@
     app:startDestination="@+id/login">
 
     <fragment
+        android:id="@+id/editprofile"
+        android:name="com.example.reporter_news_app.ui.editprofile.EditProfileFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+    <fragment
         android:id="@+id/login"
         android:name="com.example.reporter_news_app.ui.login.LoginFragment"
         android:layout_width="match_parent"

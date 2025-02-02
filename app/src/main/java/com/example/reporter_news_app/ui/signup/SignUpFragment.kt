@@ -42,7 +42,7 @@ class SignUpFragment : Fragment() {
         viewModel.signUpState.observe(viewLifecycleOwner) { success ->
             if (success) {
                 Toast.makeText(requireContext(), "Sign-Up Successful!", Toast.LENGTH_SHORT).show()
-                findNavController().navigate(R.id.nav_home) // Redirect to Home
+                findNavController().navigate(R.id.editprofile) // Redirect to Home
             } else {
                 Toast.makeText(requireContext(), "Sign-Up Failed. Check inputs.", Toast.LENGTH_SHORT).show()
             }
