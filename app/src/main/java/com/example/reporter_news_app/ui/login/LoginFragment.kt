@@ -36,11 +36,17 @@ class LoginFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
 
         binding.loginButton.setOnClickListener {
-            val username = binding.usernameEditText.text.toString()
-            val password = binding.passwordEditText.text.toString()
-            viewModel.login(username, password)
-        }
+            val email = binding.emailEditText.text.toString().trim()
+            val password = binding.passwordEditText.text.toString().trim()
 
+            if (email.isEmpty() || password.isEmpty()) {
+                Toast.makeText(requireContext(), "Please enter all fields", Toast.LENGTH_SHORT)
+                    .show()
+                return@setOnClickListener
+            }
+
+            viewModel.login(requireContext(), email, password)
+        }
         // Start of SpannableString code
         // For "don't have an account ? Sign Up"
         val fullText = "don't have an account ? Sign Up"
