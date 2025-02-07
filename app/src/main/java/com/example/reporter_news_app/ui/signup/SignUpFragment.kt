@@ -36,11 +36,16 @@ class SignUpFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(SignUpViewModel::class.java)
 
         binding.signUpButton.setOnClickListener {
-            val username = binding.usernameEditText.text.toString()
-            val email = binding.emailEditText.text.toString()
-            val password = binding.passwordEditText.text.toString()
+            val name = binding.usernameEditText.text.toString().trim() // ✅ Updated from "username" to "name"
+            val email = binding.emailEditText.text.toString().trim()
+            val password = binding.passwordEditText.text.toString().trim()
 
-            viewModel.signUp(username, email, password)
+            if (name.isEmpty() || email.isEmpty() || password.isEmpty()) {
+                Toast.makeText(requireContext(), "Please fill all fields", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            viewModel.signUp(requireContext(), name, email, password)
         }
 
         // For "don't have an account ? Sign Up"
@@ -60,10 +65,10 @@ class SignUpFragment : Fragment() {
 
         viewModel.signUpState.observe(viewLifecycleOwner) { success ->
             if (success) {
-                Toast.makeText(requireContext(), "Sign-Up Successful!", Toast.LENGTH_SHORT).show()
-                findNavController().navigate(R.id.nav_edit_profile) // Redirect to Home
+                Toast.makeText(requireContext(), "Sign-up successful! Please log in.", Toast.LENGTH_SHORT).show()
+                findNavController().navigate(R.id.nav_home) // Navigate to login
             } else {
-                Toast.makeText(requireContext(), "Sign-Up Failed. Check inputs.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Sign-up failed", Toast.LENGTH_SHORT).show()
             }
         }
     }
