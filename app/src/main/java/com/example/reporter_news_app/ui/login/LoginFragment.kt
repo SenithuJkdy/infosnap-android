@@ -76,11 +76,34 @@ class LoginFragment : Fragment() {
             findNavController().navigate(R.id.nav_signup) // Navigate to Sign-Up when hyperlink clicked
         }
 
-        viewModel.loginState.observe(viewLifecycleOwner) { success ->
-            if (success) {
-                findNavController().navigate(R.id.nav_news)
+        // Observe login state
+        viewModel.loginState.observe(viewLifecycleOwner) { result ->
+            if (result.isSuccess) {
+                when (result.role) {
+                    "user" -> {
+                        // Navigate to news feed
+                        findNavController().navigate(R.id.nav_news)
+                    }
+                    "reporter" -> {
+                        // Navigate to reporter dashboard (placeholder for now)
+                        findNavController().navigate(R.id.nav_home) // or your reporter-specific destination
+                    }
+                    "editor" -> {
+                        // Navigate to editor dashboard (placeholder for now)
+                        findNavController().navigate(R.id.nav_home) // or your editor-specific destination
+                    }
+                    else -> {
+                        // Handle unknown role
+                        Toast.makeText(context, "User not found", Toast.LENGTH_SHORT).show()
+                    }
+                }
             } else {
-                Toast.makeText(requireContext(), "Login failed", Toast.LENGTH_SHORT).show()
+                // Handle login failure
+                Toast.makeText(
+                    context,
+                    result.errorMessage ?: "Login failed",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
 
