@@ -86,7 +86,7 @@ class LoginFragment : Fragment() {
                     }
                     "reporter" -> {
                         // Navigate to reporter dashboard (placeholder for now)
-                        findNavController().navigate(R.id.nav_home) // or your reporter-specific destination
+                        findNavController().navigate(R.id.nav_reporter_home) // or your reporter-specific destination
                     }
                     "editor" -> {
                         // Navigate to editor dashboard (placeholder for now)
