@@ -5,6 +5,28 @@
     android:id="@+id/mobile_navigation"
     app:startDestination="@+id/nav_landing">
 
+    <fragment
+        android:id="@+id/nav_news_detail"
+        android:name="com.example.reporter_news_app.ui.news.NewsDetailFragment"
+        android:label="News Detail"
+        tools:layout="@layout/fragment_news_detail">
+        <!-- Optional: Add arguments if you want to use Safe Args -->
+        <argument
+            android:name="newsId"
+            app:argType="string" />
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="content"
+            app:argType="string" />
+        <argument
+            android:name="authorName"
+            app:argType="string" />
+        <argument
+            android:name="createdAt"
+            app:argType="string" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_news"

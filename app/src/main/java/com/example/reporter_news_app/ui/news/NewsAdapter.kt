@@ -7,7 +7,8 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.reporter_news_app.databinding.ItemNewsBinding
 
-class NewsAdapter : ListAdapter<NewsResponse, NewsAdapter.NewsViewHolder>(NewsDiffCallback()) {
+class NewsAdapter( private val onNewsClicked: (NewsResponse) -> Unit)
+    : ListAdapter<NewsResponse, NewsAdapter.NewsViewHolder>(NewsDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsViewHolder {
         val binding = ItemNewsBinding.inflate(
@@ -15,7 +16,7 @@ class NewsAdapter : ListAdapter<NewsResponse, NewsAdapter.NewsViewHolder>(NewsDi
             parent,
             false
         )
-        return NewsViewHolder(binding)
+        return NewsViewHolder(binding,onNewsClicked)
     }
 
     override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
@@ -23,7 +24,8 @@ class NewsAdapter : ListAdapter<NewsResponse, NewsAdapter.NewsViewHolder>(NewsDi
     }
 
     class NewsViewHolder(
-        private val binding: ItemNewsBinding
+        private val binding: ItemNewsBinding,
+        private val onNewsClicked: (NewsResponse) -> Unit
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(news: NewsResponse) {
@@ -32,6 +34,11 @@ class NewsAdapter : ListAdapter<NewsResponse, NewsAdapter.NewsViewHolder>(NewsDi
                 contentTextView.text = news.content
                 authorTextView.text = news.authorId.name
                 dateTextView.text = formatDate(news.createdAt)
+
+                // Set click listener on the entire item
+                root.setOnClickListener {
+                    onNewsClicked(news)
+                }
             }
         }
 

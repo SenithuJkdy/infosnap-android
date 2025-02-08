@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.Volley
@@ -41,11 +42,19 @@ class NewsFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
-        newsAdapter = NewsAdapter()
-        binding.recyclerView.apply {
-            adapter = newsAdapter
-            layoutManager = LinearLayoutManager(context)
+        newsAdapter = NewsAdapter { news ->
+            // Navigate to detail fragment
+            val bundle = Bundle().apply {
+                putString("newsId", news._id)
+                putString("title", news.title)
+                putString("content", news.content)
+                putString("authorName", news.authorId.name)
+                putString("createdAt", news.createdAt)
+            }
+            findNavController().navigate(R.id.nav_news_detail, bundle)
         }
+        binding.recyclerView.adapter = newsAdapter
+        binding.recyclerView.layoutManager = LinearLayoutManager(context)
     }
 
     private fun setupObservers() {
