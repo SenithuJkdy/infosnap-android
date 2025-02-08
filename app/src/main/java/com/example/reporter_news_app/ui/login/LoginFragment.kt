@@ -90,7 +90,7 @@ class LoginFragment : Fragment() {
                     }
                     "editor" -> {
                         // Navigate to editor dashboard (placeholder for now)
-                        findNavController().navigate(R.id.nav_home) // or your editor-specific destination
+                        findNavController().navigate(R.id.nav_editor_home) // or your editor-specific destination
                     }
                     else -> {
                         // Handle unknown role
