@@ -78,7 +78,7 @@ class LoginFragment : Fragment() {
 
         viewModel.loginState.observe(viewLifecycleOwner) { success ->
             if (success) {
-                findNavController().navigate(R.id.nav_home)
+                findNavController().navigate(R.id.nav_news)
             } else {
                 Toast.makeText(requireContext(), "Login failed", Toast.LENGTH_SHORT).show()
             }

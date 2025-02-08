@@ -5,6 +5,25 @@
     android:id="@+id/mobile_navigation"
     app:startDestination="@+id/nav_landing">
 
+
+    <fragment
+        android:id="@+id/nav_news"
+        android:name="com.example.reporter_news_app.ui.news.NewsFragment"
+        android:label="news"
+        tools:layout="@layout/fragment_news" />
+
+    <fragment
+        android:id="@+id/nav_reporter_home"
+        android:name="com.example.reporter_news_app.ui.reporter.ReporterHomeFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <fragment
+        android:id="@+id/nav_editor_home"
+        android:name="com.example.reporter_news_app.ui.editor.EditorHomeFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
     <fragment
         android:id="@+id/nav_edit_profile"
         android:name="com.example.reporter_news_app.ui.editprofile.EditProfileFragment"
@@ -47,4 +66,7 @@
         android:name="com.example.reporter_news_app.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+
+
+
 </navigation>
