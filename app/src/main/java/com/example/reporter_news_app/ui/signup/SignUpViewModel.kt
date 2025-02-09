@@ -30,11 +30,8 @@ class SignUpViewModel : ViewModel() {
         val request = object : JsonObjectRequest(Method.POST, url, requestBody,
             Response.Listener { response ->
                 try {
-                    if (response.has("message")) {  // ✅ Check if "message" exists
-                        _signUpState.value = true
-                    } else {
-                        _signUpState.value = false
-                    }
+                    // ✅ Check if "message" exists
+                    _signUpState.value = response.has("message")
                 } catch (e: JSONException) {
                     _signUpState.value = false
                 }

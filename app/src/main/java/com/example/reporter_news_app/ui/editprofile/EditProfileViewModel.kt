@@ -11,11 +11,8 @@ class EditProfileViewModel : ViewModel() {
     val profileCompleted: LiveData<Boolean> get() = _profileCompleted
 
     fun saveProfile(username: String, fullName: String, email: String, phone: String, profileImage: Uri?) {
-        if (username.isNotEmpty() && fullName.isNotEmpty() && email.contains("@") && phone.length >= 10) {
-            _profileCompleted.value = true // Assume success (replace with real database logic)
-        } else {
-            _profileCompleted.value = false
-        }
+        // Assume success (replace with real database logic)
+        _profileCompleted.value = username.isNotEmpty() && fullName.isNotEmpty() && email.contains("@") && phone.length >= 10
     }
 
 }

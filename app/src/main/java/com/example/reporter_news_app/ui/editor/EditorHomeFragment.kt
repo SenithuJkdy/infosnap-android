@@ -1,16 +1,14 @@
 package com.example.reporter_news_app.ui.editor
 
-import androidx.fragment.app.viewModels
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.view.isVisible
-import androidx.navigation.fragment.findNavController
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.reporter_news_app.R
 import com.example.reporter_news_app.databinding.FragmentEditorHomeBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 

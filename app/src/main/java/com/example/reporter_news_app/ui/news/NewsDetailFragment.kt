@@ -1,11 +1,10 @@
 package com.example.reporter_news_app.ui.news
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.reporter_news_app.R
+import androidx.fragment.app.Fragment
 import com.example.reporter_news_app.databinding.FragmentNewsDetailBinding
 
 class NewsDetailFragment : Fragment() {

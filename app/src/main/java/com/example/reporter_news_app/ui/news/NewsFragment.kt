@@ -1,22 +1,16 @@
 package com.example.reporter_news_app.ui.news
 
-import android.content.Context
-import androidx.fragment.app.viewModels
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.android.volley.toolbox.JsonArrayRequest
-import com.android.volley.toolbox.Volley
 import com.example.reporter_news_app.R
 import com.example.reporter_news_app.databinding.FragmentNewsBinding
-import org.json.JSONException
 
 class NewsFragment : Fragment() {
     private lateinit var binding: FragmentNewsBinding

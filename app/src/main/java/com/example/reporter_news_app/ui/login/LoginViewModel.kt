@@ -5,14 +5,11 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
-import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.reporter_news_app.ui.Constants
 import org.json.JSONException
 import org.json.JSONObject
-import java.lang.reflect.Method
 
 class LoginViewModel : ViewModel() {
     // Create separate states for login result and role
