@@ -32,6 +32,16 @@ class SignUpViewModel : ViewModel() {
                 try {
                     // ✅ Check if "message" exists
                     _signUpState.value = response.has("message")
+
+                    // Extract all necessary data from response
+                    val authorId = response.getString("authorId")
+
+                    // Store data in SharedPreferences
+                    val sharedPref = context.getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
+                    with(sharedPref.edit()) {
+                        putString("author_id", authorId)
+                        apply()
+                    }
                 } catch (e: JSONException) {
                     _signUpState.value = false
                 }
