@@ -1,11 +1,13 @@
 package com.example.reporter_news_app.ui.reporter
 
+import android.content.Context
 import androidx.fragment.app.viewModels
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import com.example.reporter_news_app.R
@@ -62,6 +64,7 @@ class ReporterHomeFragment : Fragment() {
             binding.submitButton.isEnabled = true
 
             if (result.isSuccess) {
+                hideKeyboard()
                 // Clear form
                 binding.titleEditText.text?.clear()
                 binding.contentEditText.text?.clear()
@@ -91,6 +94,11 @@ class ReporterHomeFragment : Fragment() {
                 dialog.dismiss()
             }
             .show()
+    }
+    // hide keyboard after signup
+    private fun hideKeyboard() {
+        val imm = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(view?.windowToken, 0)
     }
 
 }

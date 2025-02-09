@@ -1,5 +1,6 @@
 package com.example.reporter_news_app.ui.login
 
+import android.content.Context
 import androidx.fragment.app.viewModels
 import android.os.Bundle
 import android.text.Spannable
@@ -9,6 +10,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
@@ -80,6 +82,7 @@ class LoginFragment : Fragment() {
         // Observe login state
         viewModel.loginState.observe(viewLifecycleOwner) { result ->
             if (result.isSuccess) {
+                hideKeyboard()
                 when (result.role) {
                     "user" -> {
                         // Navigate to news feed
@@ -108,6 +111,11 @@ class LoginFragment : Fragment() {
             }
         }
 
+    }
+    // hide keyboard after logged
+    private fun hideKeyboard() {
+        val imm = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(view?.windowToken, 0)
     }
 
     override fun onDestroyView() {

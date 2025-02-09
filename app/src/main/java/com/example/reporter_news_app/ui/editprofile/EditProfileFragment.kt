@@ -56,7 +56,7 @@ class EditProfileFragment : Fragment() {
         viewModel.profileCompleted.observe(viewLifecycleOwner) { success ->
             if (success) {
                 Toast.makeText(requireContext(), "Profile Completed!", Toast.LENGTH_SHORT).show()
-                findNavController().navigate(R.id.nav_home) // Redirect to Home
+                findNavController().navigate(R.id.nav_news) // Redirect to Home
             } else {
                 Toast.makeText(requireContext(), "Please fill all fields correctly.", Toast.LENGTH_SHORT).show()
             }
