@@ -42,8 +42,12 @@ class SignUpFragment : Fragment() {
             val password = binding.passwordEditText.text.toString().trim()
             var role   = binding.userRoleSpinner.selectedItem.toString().trim()
 
+            // Retrieve the string from resources
+            val userRoles = resources.getStringArray(R.array.user_roles)
+            val defaultRole = userRoles[0] // "Please select who you are"
+
             // Spinner default value validation handle and other fields
-            if (name.isEmpty() || email.isEmpty() || password.isEmpty() || role == ("Please Select Who Are You")) {
+            if (name.isEmpty() || email.isEmpty() || password.isEmpty() || role == defaultRole) {
                 Toast.makeText(requireContext(), "Please check the all fields", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
@@ -74,7 +78,7 @@ class SignUpFragment : Fragment() {
             role = role.lowercase()
 
             if (success) {
-                Toast.makeText(requireContext(), "Sign-up successful! Please log in.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Sign-up successful !", Toast.LENGTH_SHORT).show()
                 if ( role =="user"){
                     findNavController().navigate(R.id.nav_news) // Navigate to login
                 }

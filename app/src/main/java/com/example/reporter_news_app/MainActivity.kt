@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
 
         setTheme(R.style.Theme_MyApp)
         super.onCreate(savedInstanceState)
-        Thread.sleep(1000)
+        Thread.sleep(3000)
         installSplashScreen()
 
         binding = ActivityMainBinding.inflate(layoutInflater)

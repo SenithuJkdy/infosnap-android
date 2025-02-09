@@ -34,6 +34,7 @@
 <!--        <item name="android:windowBackground">@color/teal_200</item>-->
         <!-- Animated icon (Use vector drawable) -->
         <item name="windowSplashScreenAnimatedIcon">@drawable/splash_icon</item>
+
         <!-- Theme to apply after the splash screen disappears -->
         <item name="postSplashScreenTheme">@style/Theme.MyApp</item>
     </style>

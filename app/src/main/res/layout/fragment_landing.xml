@@ -13,7 +13,7 @@
         android:layout_height="0dp"
         android:layout_weight="0.7"
         android:scaleType="centerCrop"
-        android:src="@drawable/image1" />
+        android:src="@drawable/landing3" />
 
     <!-- Content Section -->
     <LinearLayout
@@ -21,7 +21,6 @@
         android:layout_height="0dp"
         android:layout_weight="0.3"
         android:orientation="vertical"
-        android:background="@color/black"
         android:padding="16dp">
 
         <!-- Title -->
@@ -29,8 +28,9 @@
             android:id="@+id/titleText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Lorem Ipsum is simply dummy"
-            android:textSize="20sp"
+            android:fontFamily="sans-serif-light"
+            android:text="Swift Reporting! Smart Publishing."
+            android:textSize="24sp"
             android:textColor="@android:color/white"
             android:textStyle="bold" />
 
@@ -39,8 +39,9 @@
             android:id="@+id/descText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-            android:textSize="14sp"
+            android:fontFamily="sans-serif-light"
+            android:text="Stay ahead in the newsroom with our real-time reporting tool. Capture breaking news, craft compelling stories, and publish seamlessly—all at your fingertips."
+            android:textSize="16sp"
             android:textColor="@android:color/darker_gray"
             android:layout_marginTop="4dp" />
 

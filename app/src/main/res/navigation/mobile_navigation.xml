@@ -43,7 +43,7 @@
     <fragment
         android:id="@+id/nav_news"
         android:name="com.example.reporter_news_app.ui.news.NewsFragment"
-        android:label="news"
+        android:label="Latest News"
         tools:layout="@layout/fragment_news" />
 
 

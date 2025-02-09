@@ -11,9 +11,9 @@ class LandingViewModel : ViewModel() {
     val imageIndex: LiveData<Int> = _imageIndex
 
     private val imageList = listOf(
-        R.drawable.image1,
-        R.drawable.image2,
-        R.drawable.image3
+        R.drawable.landing3,
+        R.drawable.landing2,
+        R.drawable.landing1
     )
 
     fun getImage(index: Int): Int = imageList[index]
