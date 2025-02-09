@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
+import com.example.reporter_news_app.ui.Constants
 import org.json.JSONObject
 
 class ReporterHomeViewModel : ViewModel() {
@@ -19,7 +20,7 @@ class ReporterHomeViewModel : ViewModel() {
     )
 
     fun submitArticle(context: Context, title: String, content: String) {
-        val url = "http://192.168.1.100:5001/api/articles/create"
+        val url = "${Constants.BASE_URL}/api/articles/create"
 
         // Get authorId from SharedPreferences
         val sharedPref = context.getSharedPreferences("user_prefs", Context.MODE_PRIVATE)

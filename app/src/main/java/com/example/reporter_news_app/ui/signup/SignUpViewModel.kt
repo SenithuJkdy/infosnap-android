@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModel
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
+import com.example.reporter_news_app.ui.Constants
 import org.json.JSONException
 import org.json.JSONObject
 
@@ -17,7 +18,7 @@ class SignUpViewModel : ViewModel() {
     val signUpState: LiveData<Boolean> get() = _signUpState
 
     fun signUp(context: Context, name: String, email: String, password: String, role: String) {
-        val url = "http://192.168.1.100:5001/api/auth/register" // Update with actual endpoint
+        val url = "${Constants.BASE_URL}/api/auth/register" // Update with actual endpoint
 
         val requestBody = JSONObject().apply {
             put("name", name)

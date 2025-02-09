@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModel
 import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
+import com.example.reporter_news_app.ui.Constants
 import com.example.reporter_news_app.ui.news.Author
 import com.example.reporter_news_app.ui.news.NewsResponse
 import org.json.JSONException
@@ -23,7 +24,7 @@ class EditorHomeViewModel : ViewModel() {
 
 
     fun fetchSubmittedArticles(context: Context) {
-        val url = "http://192.168.1.100:5001/api/articles/all"
+        val url = "${Constants.BASE_URL}/api/articles/all"
 
         val request = object : JsonArrayRequest(
             Method.GET,
@@ -78,7 +79,7 @@ class EditorHomeViewModel : ViewModel() {
     }
 
     fun updateArticleStatus(context: Context, articleId: String, newStatus: String) {
-        val url = "http://192.168.1.100:5001/api/articles/approve/$articleId"
+        val url = "${Constants.BASE_URL}/api/articles/approve/$articleId"
 
         val requestBody = JSONObject().apply {
             put("status", newStatus)

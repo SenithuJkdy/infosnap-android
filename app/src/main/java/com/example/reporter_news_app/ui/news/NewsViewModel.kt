@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.Volley
+import com.example.reporter_news_app.ui.Constants
 import org.json.JSONException
 
 class NewsViewModel : ViewModel() {
@@ -17,7 +18,7 @@ class NewsViewModel : ViewModel() {
     val errorState: LiveData<String> get() = _errorState
 
     fun fetchApprovedNews(context: Context) {
-        val url = "http://192.168.1.100:5001/api/articles/all"
+        val url = "${Constants.BASE_URL}/api/articles/all"
 
         val request = object : JsonArrayRequest(
             Method.GET,

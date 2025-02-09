@@ -9,6 +9,7 @@ import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.example.reporter_news_app.ui.Constants
 import org.json.JSONException
 import org.json.JSONObject
 import java.lang.reflect.Method
@@ -19,7 +20,7 @@ class LoginViewModel : ViewModel() {
     val loginState: LiveData<LoginResult> get() = _loginState
 
     fun login(context: Context, email: String, password: String) {
-        val url = "http://192.168.1.100:5001/api/auth/login"
+        val url = "${Constants.BASE_URL}/api/auth/login"
 
         val requestBody = JSONObject().apply {
             put("email", email)
@@ -45,6 +46,12 @@ class LoginViewModel : ViewModel() {
                         putString("author_id", authorId)
                         apply()
                     }
+
+                    // Verify the data was stored
+                    val savedRole = sharedPref.getString("user_role", "")
+                    val savedToken = sharedPref.getString("auth_token", "")
+                    Log.d("LoginViewModel", "Stored Role: $savedRole, Token exists: ${!savedToken.isNullOrEmpty()}")
+
 
                     // Update login state based on role
                     _loginState.value = LoginResult(

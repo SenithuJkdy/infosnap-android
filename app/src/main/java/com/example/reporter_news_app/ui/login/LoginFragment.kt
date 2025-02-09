@@ -45,6 +45,7 @@ class LoginFragment : Fragment() {
                 return@setOnClickListener
             }
 
+
             viewModel.login(requireContext(), email, password)
         }
         // Start of SpannableString code
