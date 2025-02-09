@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.compose.ui.text.toLowerCase
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -36,16 +37,20 @@ class SignUpFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(SignUpViewModel::class.java)
 
         binding.signUpButton.setOnClickListener {
-            val name = binding.usernameEditText.text.toString().trim() // ✅ Updated from "username" to "name"
+            val name = binding.usernameEditText.text.toString().trim()
             val email = binding.emailEditText.text.toString().trim()
             val password = binding.passwordEditText.text.toString().trim()
+            var role   = binding.userRoleSpinner.selectedItem.toString().trim()
 
-            if (name.isEmpty() || email.isEmpty() || password.isEmpty()) {
-                Toast.makeText(requireContext(), "Please fill all fields", Toast.LENGTH_SHORT).show()
+            // Spinner default value validation handle and other fields
+            if (name.isEmpty() || email.isEmpty() || password.isEmpty() || role == ("Please Select Who Are You")) {
+                Toast.makeText(requireContext(), "Please check the all fields", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
+            role = role.lowercase()
 
-            viewModel.signUp(requireContext(), name, email, password)
+
+            viewModel.signUp(requireContext(), name, email, password,role)
         }
 
         // For "don't have an account ? Sign Up"
@@ -64,9 +69,18 @@ class SignUpFragment : Fragment() {
         }
 
         viewModel.signUpState.observe(viewLifecycleOwner) { success ->
+            // role based navigation
+            var role   = binding.userRoleSpinner.selectedItem.toString().trim()
+            role = role.lowercase()
+
             if (success) {
                 Toast.makeText(requireContext(), "Sign-up successful! Please log in.", Toast.LENGTH_SHORT).show()
-                findNavController().navigate(R.id.nav_home) // Navigate to login
+                if ( role =="user"){
+                    findNavController().navigate(R.id.nav_news) // Navigate to login
+                }
+                else if (role == "reporter"){
+                    findNavController().navigate(R.id.nav_reporter_home) // Navigate to login
+                }
             } else {
                 Toast.makeText(requireContext(), "Sign-up failed", Toast.LENGTH_SHORT).show()
             }

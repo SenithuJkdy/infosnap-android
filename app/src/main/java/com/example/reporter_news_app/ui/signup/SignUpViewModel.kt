@@ -16,13 +16,14 @@ class SignUpViewModel : ViewModel() {
     private val _signUpState = MutableLiveData<Boolean>()
     val signUpState: LiveData<Boolean> get() = _signUpState
 
-    fun signUp(context: Context, name: String, email: String, password: String) {
+    fun signUp(context: Context, name: String, email: String, password: String, role: String) {
         val url = "http://192.168.1.100:5001/api/auth/register" // Update with actual endpoint
 
         val requestBody = JSONObject().apply {
             put("name", name)
             put("email", email)
             put("password", password)
+            put("role", role)
         }
 
         val request = object : JsonObjectRequest(Method.POST, url, requestBody,

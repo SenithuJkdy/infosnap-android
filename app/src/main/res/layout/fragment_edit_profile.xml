@@ -153,7 +153,7 @@
         <!-- Phone Number Input Layout -->
 
         <TextView
-            android:id="@+id/passwordHelperText"
+            android:id="@+id/phoneNumberHelperText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Phone Number"
@@ -191,6 +191,8 @@
                 android:maxLength="10"/>
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- User Role Selection -->
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.button.MaterialButton
@@ -200,7 +202,7 @@
         android:layout_height="wrap_content"
         app:cornerRadius="5dp"
         android:layout_marginHorizontal="5dp"
-       android:layout_marginTop="100dp"
+       android:layout_marginTop="45dp"
         android:backgroundTint="@color/sky_blue"
         android:text="Next" />
 
