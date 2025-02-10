@@ -39,4 +39,10 @@
         <item name="postSplashScreenTheme">@style/Theme.MyApp</item>
         <item name="android:statusBarColor">@color/colorPrimary</item>
     </style>
+
+    <style name="SpinnerItemStyle" parent="Widget.AppCompat.DropDownItem.Spinner">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:backgroundTint">@color/grey</item>
+    </style>
+
 </resources>

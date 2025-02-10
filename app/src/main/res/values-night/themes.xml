@@ -13,4 +13,7 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+    <style name="Theme.YourApp" parent="Theme.MaterialComponents.DayNight">
+        <item name="cardBackgroundColor">@color/cardview_dark_background</item>
+    </style>
 </resources>

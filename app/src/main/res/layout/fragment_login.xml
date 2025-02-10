@@ -76,6 +76,7 @@
             app:boxStrokeWidth="0dp"
             app:endIconMode="clear_text"
             app:boxStrokeColor="@color/transparent"
+            app:endIconTint="@color/black"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
@@ -85,7 +86,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:inputType="textEmailAddress"
-                android:maxLength="20"/>
+                android:padding="5dp"
+                android:textColor="@color/black"
+                android:maxLength="35"/>
         </com.google.android.material.textfield.TextInputLayout>
         <!--Email input layout-->
         <!--Email input layout End-->
@@ -118,6 +121,7 @@
             app:counterMaxLength="10"
             app:endIconMode="password_toggle"
             android:hint="Password"
+            app:endIconTint="@color/black"
             app:boxStrokeColor="@color/transparent"
             app:layout_constraintTop_toBottomOf="@id/textUsernameInputLayout"
             app:layout_constraintStart_toStartOf="parent"
@@ -128,7 +132,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:inputType="textPassword"
-                android:maxLength="10"/>
+                android:padding="5dp"
+                android:textColor="@color/black"
+                android:maxLength="15"/>
         </com.google.android.material.textfield.TextInputLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -183,6 +189,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginHorizontal="10dp"
         android:backgroundTint="@color/sky_blue"
+        android:textColor="@color/white"
         android:text="Login" />
 
 <!--    Continue with -->
